@@ -1,5 +1,5 @@
 FROM ubuntu:trusty
-MAINTAINER Patrick Oberdorf <patrick@oberdorf.net>
+MAINTAINER Justin Swanson <geeksunny@gmail.com>
 
 COPY assets/apt/preferences.d/pdns /etc/apt/preferences.d/pdns
 RUN apt-get update && apt-get install -y curl \
@@ -57,5 +57,8 @@ COPY start.sh /start.sh
 
 EXPOSE 53 80
 EXPOSE 53/udp
+
+### CONFIG ACCESS ###
+#VOLUME ["/etc/powerdns"]
 
 CMD ["/bin/bash", "/start.sh"]
